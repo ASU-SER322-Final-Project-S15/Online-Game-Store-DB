@@ -7,8 +7,11 @@ border-collapse:collapse;
 border:1px solid #FF0000;
 }
 
-table td{
+table td {
 border:1px solid #FF0000;
+}
+table th {
+    border:1px solid #FF0000;
 }
 </style>
 <script>
@@ -17,20 +20,20 @@ border:1px solid #FF0000;
 
       
         var url;
-        document.getElementById('tableViewer').style.display = 'block';
+
         if (selectedTable == 'Users') {
             alert('user');
-            url = "/getTable.php?type=users";
+            url = "getTable.php?type=Users";
         } else if (selectedTable == 'Games') {
             alert('games');
-            url = "/getTable.php?type=games";
+            url = "getTable.php?type=Games";
         } else if (selectedTable == 'Devs') {
             alert('udevs');
-            url = "/getTable.php?type=devs";
+            url = "getTable.php?type=Devs";
         } else if (selectedTable == 'UserTH') {
             alert('transactgion');
             var userId = document.getElementById('txtUserId').value;
-            url = "/getTable.php?type=th&userId=" + userId;
+            url = "getTable.php?type=th&userId=" + userId;
         }
 
 
@@ -42,6 +45,9 @@ border:1px solid #FF0000;
         document.getElementById('tableData').innerHTML = xmlHttp.responseText;
 
         document.getElementById('tableViewer').style.display = 'block';
+
+
+
     }
 
 </script>
