@@ -6,7 +6,7 @@ $userId = $_GET["userId"];
 
 $servername = "db4free.net:3306";
 $username = "sergaming";
-$password = "ASK KOLE";
+$password = "ASK KOLE"; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
 $database = "sergamedb";
 
 
