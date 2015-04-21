@@ -1,9 +1,21 @@
 
+
+
 <?php
 
-$selectedTable = $_GET["type"];
+/**
+ * Created by PhpStorm.
+ * User: Kole
+ * Date: 4/21/2015
+ * Time: 1:57 PM
+ */
+
+
+/* GET URL PARAMETERS */
+$selectedTable = $_GET["type"]; //type of table i.e. Game or User
 $userId = $_GET["userId"];
 
+/* MYSQL Server Connection Info */
 $servername = "db4free.net:3306";
 $username = "sergaming";
 $password = "ASK KOLE"; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
@@ -20,14 +32,14 @@ if ($conn->connect_error) {
 } 
 //echo "Connected successfully";
 
+/* DONE WITH CONNECTING - TIME TO QUERY */
+
+
 $sql;
 
 
-/*
-echo '<script language="javascript">';
-echo 'alert("' . $selectedTable .   '")';
-echo '</script>'; */
 
+/* CHANGE SELECTION QUERY BASED ON TABLE WANTED */
 
 if($selectedTable == "Users")
     $sql = "select * from User";
@@ -39,19 +51,22 @@ else if ($selectedTable == "UserTH")
     $sql = "select * from User where userId=" . $userId;
 
 
-
+//query using the connection, store result
 $result = $conn->query($sql);
 
+//if there's rows returned, go through them
 if ($result->num_rows > 0) {
     // output data of each row
 
     $htmlTable = "<table align='center'>";
 
+    //get the HEADERS row of the table
     $htmlTable = getHeaders($htmlTable, $selectedTable);
 
     while($row = $result->fetch_assoc()) {
         $htmlTable = $htmlTable . "<tr>";
 
+        //Get the row (changes depending on which table is wanted to be returned)
         $htmlTable = getRow($htmlTable, $row, $selectedTable, $userId);
 
 

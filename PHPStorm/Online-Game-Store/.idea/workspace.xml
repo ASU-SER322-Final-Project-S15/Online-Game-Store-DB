@@ -28,24 +28,35 @@
       <file leaf-file-name="getTable.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/getTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03803132" vertical-offset="102" max-vertical-offset="2193">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.1901566" vertical-offset="0" max-vertical-offset="2448">
+              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
               <folding>
-                <marker date="1429660392773" expanded="true" signature="625:639" placeholder="select * fro..Game..." />
-                <marker date="1429660392773" expanded="true" signature="625:643" placeholder="select * fro..User..." />
-                <marker date="1429660392773" expanded="true" signature="694:712" placeholder="select * fro..Game..." />
-                <marker date="1429660392773" expanded="true" signature="762:776" placeholder="select * fro..Game..." />
-                <marker date="1429660392773" expanded="true" signature="762:785" placeholder="select * fro..Developer..." />
-                <marker date="1429660392773" expanded="true" signature="837:851" placeholder="select * fro..Game..." />
-                <marker date="1429660392773" expanded="true" signature="837:869" placeholder="select * fro..User..." />
-                <marker date="1429660392773" expanded="true" signature="1018:1297" placeholder="..." />
-                <marker date="1429660392773" expanded="true" signature="1623:1641" placeholder="select * fro..User..." />
-                <marker date="1429660392773" expanded="true" signature="2311:2334" placeholder="select * fro..Developer..." />
-                <marker date="1429660392773" expanded="true" signature="2402:2434" placeholder="select * fro..User..." />
-                <marker date="1429660392773" expanded="true" signature="2606:2624" placeholder="select * fro..User..." />
-                <marker date="1429660392773" expanded="true" signature="2902:2925" placeholder="select * fro..Developer..." />
-                <marker date="1429660392773" expanded="true" signature="2993:3025" placeholder="select * fro..User..." />
+                <element signature="e#10#91#0#PHP" expanded="true" />
+                <marker date="1429660699922" expanded="true" signature="796:810" placeholder="select * fro..Game..." />
+                <marker date="1429660699922" expanded="true" signature="796:814" placeholder="select * fro..User..." />
+                <marker date="1429660699922" expanded="true" signature="865:883" placeholder="select * fro..Game..." />
+                <marker date="1429660699922" expanded="true" signature="933:947" placeholder="select * fro..Game..." />
+                <marker date="1429660699922" expanded="true" signature="933:956" placeholder="select * fro..Developer..." />
+                <marker date="1429660699922" expanded="true" signature="1008:1022" placeholder="select * fro..Game..." />
+                <marker date="1429660699922" expanded="true" signature="1008:1040" placeholder="select * fro..User..." />
+                <marker date="1429660699922" expanded="true" signature="1275:1675" placeholder="..." />
+                <marker date="1429660699922" expanded="true" signature="2001:2019" placeholder="select * fro..User..." />
+                <marker date="1429660699922" expanded="true" signature="2689:2712" placeholder="select * fro..Developer..." />
+                <marker date="1429660699922" expanded="true" signature="2780:2812" placeholder="select * fro..User..." />
+                <marker date="1429660699922" expanded="true" signature="2984:3002" placeholder="select * fro..User..." />
+                <marker date="1429660699922" expanded="true" signature="3280:3303" placeholder="select * fro..Developer..." />
+                <marker date="1429660699922" expanded="true" signature="3371:3403" placeholder="select * fro..User..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deleteRow.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deleteRow.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
+              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,8 +74,8 @@
       <file leaf-file-name="insertGame.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/insertGame.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="204">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
+              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -268,12 +279,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/getTable.php</url>
-          <line>28</line>
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
@@ -284,20 +289,21 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1429660392773" expanded="true" signature="625:639" placeholder="select * fro..Game..." />
-            <marker date="1429660392773" expanded="true" signature="625:643" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="694:712" placeholder="select * fro..Game..." />
-            <marker date="1429660392773" expanded="true" signature="762:776" placeholder="select * fro..Game..." />
-            <marker date="1429660392773" expanded="true" signature="762:785" placeholder="select * fro..Developer..." />
-            <marker date="1429660392773" expanded="true" signature="837:851" placeholder="select * fro..Game..." />
-            <marker date="1429660392773" expanded="true" signature="837:869" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="1018:1297" placeholder="..." />
-            <marker date="1429660392773" expanded="true" signature="1623:1641" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="2311:2334" placeholder="select * fro..Developer..." />
-            <marker date="1429660392773" expanded="true" signature="2402:2434" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="2606:2624" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="2902:2925" placeholder="select * fro..Developer..." />
-            <marker date="1429660392773" expanded="true" signature="2993:3025" placeholder="select * fro..User..." />
+            <element signature="e#10#91#0#PHP" expanded="true" />
+            <marker date="1429660699922" expanded="true" signature="796:810" placeholder="select * fro..Game..." />
+            <marker date="1429660699922" expanded="true" signature="796:814" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="865:883" placeholder="select * fro..Game..." />
+            <marker date="1429660699922" expanded="true" signature="933:947" placeholder="select * fro..Game..." />
+            <marker date="1429660699922" expanded="true" signature="933:956" placeholder="select * fro..Developer..." />
+            <marker date="1429660699922" expanded="true" signature="1008:1022" placeholder="select * fro..Game..." />
+            <marker date="1429660699922" expanded="true" signature="1008:1040" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="1275:1675" placeholder="..." />
+            <marker date="1429660699922" expanded="true" signature="2001:2019" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="2689:2712" placeholder="select * fro..Developer..." />
+            <marker date="1429660699922" expanded="true" signature="2780:2812" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="2984:3002" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="3280:3303" placeholder="select * fro..Developer..." />
+            <marker date="1429660699922" expanded="true" signature="3371:3403" placeholder="select * fro..User..." />
           </folding>
         </state>
       </provider>
@@ -322,31 +328,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/insertGame.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="920">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deleteRow.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/getTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03803132" vertical-offset="102" max-vertical-offset="2193">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.1901566" vertical-offset="0" max-vertical-offset="2448">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding>
-            <marker date="1429660392773" expanded="true" signature="625:639" placeholder="select * fro..Game..." />
-            <marker date="1429660392773" expanded="true" signature="625:643" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="694:712" placeholder="select * fro..Game..." />
-            <marker date="1429660392773" expanded="true" signature="762:776" placeholder="select * fro..Game..." />
-            <marker date="1429660392773" expanded="true" signature="762:785" placeholder="select * fro..Developer..." />
-            <marker date="1429660392773" expanded="true" signature="837:851" placeholder="select * fro..Game..." />
-            <marker date="1429660392773" expanded="true" signature="837:869" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="1018:1297" placeholder="..." />
-            <marker date="1429660392773" expanded="true" signature="1623:1641" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="2311:2334" placeholder="select * fro..Developer..." />
-            <marker date="1429660392773" expanded="true" signature="2402:2434" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="2606:2624" placeholder="select * fro..User..." />
-            <marker date="1429660392773" expanded="true" signature="2902:2925" placeholder="select * fro..Developer..." />
-            <marker date="1429660392773" expanded="true" signature="2993:3025" placeholder="select * fro..User..." />
+            <element signature="e#10#91#0#PHP" expanded="true" />
+            <marker date="1429660699922" expanded="true" signature="796:810" placeholder="select * fro..Game..." />
+            <marker date="1429660699922" expanded="true" signature="796:814" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="865:883" placeholder="select * fro..Game..." />
+            <marker date="1429660699922" expanded="true" signature="933:947" placeholder="select * fro..Game..." />
+            <marker date="1429660699922" expanded="true" signature="933:956" placeholder="select * fro..Developer..." />
+            <marker date="1429660699922" expanded="true" signature="1008:1022" placeholder="select * fro..Game..." />
+            <marker date="1429660699922" expanded="true" signature="1008:1040" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="1275:1675" placeholder="..." />
+            <marker date="1429660699922" expanded="true" signature="2001:2019" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="2689:2712" placeholder="select * fro..Developer..." />
+            <marker date="1429660699922" expanded="true" signature="2780:2812" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="2984:3002" placeholder="select * fro..User..." />
+            <marker date="1429660699922" expanded="true" signature="3280:3303" placeholder="select * fro..Developer..." />
+            <marker date="1429660699922" expanded="true" signature="3371:3403" placeholder="select * fro..User..." />
           </folding>
         </state>
       </provider>
