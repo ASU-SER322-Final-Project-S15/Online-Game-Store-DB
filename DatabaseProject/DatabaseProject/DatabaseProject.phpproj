@@ -8,6 +8,7 @@
     <RootNamespace>DatabaseProject</RootNamespace>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <AssemblyName>DatabaseProject</AssemblyName>
+    <IISProjectUrl>http://localhost:18141/</IISProjectUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -16,6 +17,10 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="getTable.php" />
     <Compile Include="index.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="main.html" />
   </ItemGroup>
 </Project>
