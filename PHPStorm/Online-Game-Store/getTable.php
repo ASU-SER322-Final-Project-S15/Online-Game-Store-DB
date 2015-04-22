@@ -16,7 +16,8 @@ $selectedTable = $_GET["type"]; //type of table i.e. Game or User
 $userId = $_GET["userId"];
 
 /* MYSQL Server Connection Info */
-$servername = "db4free.net:3306";
+//$servername = "http://www.db4free.net:3306";
+$servername = "85.10.205.173:3306";
 $username = "sergaming";
 $password = "ASK KOLE"; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
 $database = "sergamedb";
