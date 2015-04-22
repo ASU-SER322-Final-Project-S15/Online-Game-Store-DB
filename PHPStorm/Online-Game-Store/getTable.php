@@ -9,7 +9,7 @@
 
 
 /* GET URL PARAMETERS */
-$selectedTable = $_GET["type"]; //type of table i.e. Game or User
+$selectedTable = $_GET["type"]; //type of table i.e. Game or User ..
 
 
 /* MYSQL Server Connection Info */
@@ -81,6 +81,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 
+//Depending on table, get HTML row (different per table)
 function getRow($htmlTable, $row, $selectedTable, $userId)
 {
 
@@ -110,10 +111,10 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
     }
 
 
-//return "dlkfjdfjdf";
     return $htmlTable;
 }
 
+//Depending on table, get HTML Header row (different per table)
 function getHeaders($htmlTable, $selectedTable)
 {
 

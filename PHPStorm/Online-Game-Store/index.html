@@ -27,13 +27,17 @@
 </style>
 <script>
 
+    //get the specified table (from PHP)
+
     function getTable(selectedTable) {
 
 
         var url;
 
+        //show loading div
         document.getElementById('loadingDiv').style.display = 'block';
 
+        //change url based on which Table we want to get
         if (selectedTable == 'User') {
             // alert('user');
             url = "getTable.php?type=User";
@@ -50,11 +54,14 @@
         }
 
 
+        //send the http request
         var xmlHttp = null;
 
         xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", url, false);
         xmlHttp.send(null);
+
+        //replace tableData div innerHTML with response from PHP page. Hide loading div, show table.
         document.getElementById('tableData').innerHTML = xmlHttp.responseText;
         document.getElementById('loadingDiv').style.display = 'none';
         document.getElementById('tableViewer').style.display = 'block';
@@ -62,6 +69,7 @@
 
     }
 
+    //confirm that the user wants to delete the selected row
     function confirmDel(selectedTable, id) {
 
 
@@ -72,6 +80,7 @@
         }
     }
 
+    //if confirm passes,delete the row then reload table
     function deleteRow(selectedTable, id) {
         var url;
         var url2;
@@ -121,8 +130,16 @@
 
 <body style="background-color:#808080;">
 
+
+
+
 <div id="Form" style="vertical-align: middle;width: 1000px; width: 60%; margin: 0 auto; padding: 5px; background-color: white; -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5); -webkit-border-radius: 12px; -moz-border-radius: 7px; border-radius: 7px; background: -webkit-gradient(linear, left top, left bottom,
             color-stop(0%, white), color-stop(35%, #D7E9F5), color-stop(100%, #D7E9F5)); background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); z-index: 20;">
+
+
+
+    <!-- VIEW TABLE SECTION -->
+
 
     <h1 align="center">View </h1>
     <table align="center" cellpadding="10">
@@ -165,6 +182,12 @@
         </tr>
 
     </table>
+
+
+
+
+    <!-- Create/Insert INTO Table Section -->
+
 
     <h1 align="center">Create/Insert</h1>
 
@@ -209,12 +232,14 @@
     </table>
 
 
+    <!-- Loading Div, starts hidden -->
     <div id="loadingDiv"
          style="display:none;position:absolute;width:8%;left:46%;top:20%;background-color:white;border-style: solid; border-width: medium; text-align: center;vertical-align: middle;">
         LOADING..
     </div>
 
 
+    <!-- Div To Display The Table Returned From PHP, will scroll instead of increasing height if a large amount of rows are returned -->
     <div id="tableViewer"
          style="display:none;overflow:scroll;border-style: solid; border-width: medium;position: absolute; background-color: white;border-color:black;top:20px; width: 50%;left:25%; height: 40%; ">
         <span style='color:red;' id='close'
@@ -223,74 +248,6 @@
         <div id="tableData" style="">
             <table align="center" cellpadding="5">
 
-                <tr>
-                    <td>example</td>
-                    <td>example</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>example</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>example</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>example</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>example</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>example</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>example</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
-                <tr>
-                    <td>example</td>
-                    <td>exampl3e4e</td>
-                </tr>
 
 
             </table>
