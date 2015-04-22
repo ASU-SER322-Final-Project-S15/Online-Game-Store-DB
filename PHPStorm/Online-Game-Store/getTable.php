@@ -8,6 +8,7 @@
  */
 
 
+
 /* GET URL PARAMETERS */
 $selectedTable = $_GET["type"]; //type of table i.e. Game or User ..
 
