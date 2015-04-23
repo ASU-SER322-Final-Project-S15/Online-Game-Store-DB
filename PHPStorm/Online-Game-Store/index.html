@@ -85,25 +85,26 @@
         var url;
         var url2;
 
-
+        document.getElementById('loadingDiv').style.display = 'block';
         if (selectedTable == 'User') {
-            // alert('user');
-            url = "removeRow.php?type=User&id=" + id;
+
+            url = "deleteRow.php?type=User&id=" + id;
             url2 = "getTable.php?type=User";
         } else if (selectedTable == 'Game') {
             // alert('games');
-            url = "removeRow.php?type=Game&id=" + id;
+            url = "deleteRow.php?type=Game&id=" + id;
             url2 = "getTable.php?type=Game";
         } else if (selectedTable == 'Dev') {
             //  alert('udevs');
-            url = "removeRow.php?type=Dev&id=" + id;
+            url = "deleteRow.php?type=Dev&id=" + id;
             url2 = "getTable.php?type=Game";
         } else if (selectedTable == 'UserTH') {
             //  alert('transactgion');
             var userId = document.getElementById('txtUserId').value;
-            url = "removeRow.php?type=th&id=" + id;
+            url = "deleteRow.php?type=th&id=" + id;
             url2 = "getTable.php?type=th";
         }
+
 
 
         //send the delete request
@@ -115,12 +116,48 @@
         xmlHttp.send(null);
 
 
+
+
+        xmlHttp = null;
         //reload table
 
         xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", url2, false);
         xmlHttp.send(null);
         document.getElementById('tableData').innerHTML = xmlHttp.responseText;
+
+
+        document.getElementById('loadingDiv').style.display = 'none';
+
+    }
+
+
+    function createUser(){
+
+
+        var dname = document.getElementById('dname').value;
+        var addr  = document.getElementById('address').value;
+        var email  = document.getElementById('email').value;
+        var dob  = document.getElementById('dob').value;
+        var name  = document.getElementById('name').value;
+       // ?dName=fjdk&addr=232f&em=dfjdk@djfkd.com&dob=2012/2/12&name=kole
+    var url = "insertUser.php?dName=" + dname + "&addr=" + addr + "&em=" + email + "&dob=" + dob + "&name=" + name;
+
+
+
+
+        document.getElementById('loadingDiv').style.display = 'block';
+
+        var xmlHttp = null;
+
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
+
+        document.getElementById('loadingDiv').style.display = 'none';
+        if( xmlHttp.responseText.indexOf("fully") > -1)
+        alert('Success!');
+        else alert('Error inserting into DB!');
 
     }
 
@@ -133,7 +170,7 @@
 
 
 
-<div id="Form" style="vertical-align: middle;width: 1000px; width: 60%; margin: 0 auto; padding: 5px; background-color: white; -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5); -webkit-border-radius: 12px; -moz-border-radius: 7px; border-radius: 7px; background: -webkit-gradient(linear, left top, left bottom,
+<div id="Form" style="vertical-align: middle;width: 1000px; margin: 0 auto; padding: 5px; background-color: white; -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5); -webkit-border-radius: 12px; -moz-border-radius: 7px; border-radius: 7px; background: -webkit-gradient(linear, left top, left bottom,
             color-stop(0%, white), color-stop(35%, #D7E9F5), color-stop(100%, #D7E9F5)); background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); z-index: 20;">
 
 
@@ -204,15 +241,15 @@
             <th></th>
         </tr>
         <tr>
-            <td><input type="text" id="fname"></td>
-            <td><input type="text" id="fname"></td>
-            <td><input type="text" id="fname"></td>
-            <td><input type="text" id="fname"></td>
-            <td><input type="text" id="fname"></td>
+            <td><input type="text" id="dname"></td>
+            <td><input type="text" id="address"></td>
+            <td><input type="text" id="email"></td>
+            <td><input type="text" id="dob"></td>
+            <td><input type="text" id="name"></td>
 
 
             <td>
-                <button>Create User</button>
+                <button onclick="createUser();">Create User</button>
             </td>
         </tr>
     </table>
@@ -232,6 +269,32 @@
     </table>
 
 
+    <h3>Developer</h3>
+
+    <table align="center" cellpadding="5">
+
+
+        <tr>
+            <td>
+                <button>Create Developer</button>
+            </td>
+        </tr>
+    </table>
+
+
+    <h3>Transaction</h3>
+
+    <table align="center" cellpadding="5">
+
+
+        <tr>
+            <td>
+                <button>Create Transaction</button>
+            </td>
+        </tr>
+    </table>
+
+
     <!-- Loading Div, starts hidden -->
     <div id="loadingDiv"
          style="display:none;position:absolute;width:8%;left:46%;top:20%;background-color:white;border-style: solid; border-width: medium; text-align: center;vertical-align: middle;">
@@ -241,7 +304,7 @@
 
     <!-- Div To Display The Table Returned From PHP, will scroll instead of increasing height if a large amount of rows are returned -->
     <div id="tableViewer"
-         style="display:none;overflow:scroll;border-style: solid; border-width: medium;position: absolute; background-color: white;border-color:black;top:20px; width: 50%;left:25%; height: 40%; ">
+         style="display:none;overflow:scroll;min-width:500px;border-style: solid; border-width: medium;position: absolute; background-color: white;border-color:black;top:20px;left:25%; height: 500px; ">
         <span style='color:red;' id='close'
               onclick='document.getElementById("tableViewer").style.display = "none"; return false;'>X</span>
 

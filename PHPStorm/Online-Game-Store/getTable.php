@@ -88,13 +88,13 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
 
 
     if ($selectedTable == "User") {
-        $htmlTable = $htmlTable . "<td>" . $row["userId"] . "</td>";
+        $htmlTable = $htmlTable . "<td>" . $row["id"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["DisplayName"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Address"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Email"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["DOB"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Name"] . "</td>";
-        $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"User\"," . $row["userId"] . ")'>X</button></td>";
+        $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"User\"," . $row["id"] . ")'>X</button></td>";
     } else if ($selectedTable == "Game") {
         $htmlTable = $htmlTable . "<td>" . $row["id"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Title"] . "</td>";
