@@ -1,0 +1,359 @@
+<html>
+<head><title>SER Gaming Database</title></head>
+<style type="text/css" media="screen">
+
+    table {
+        border-collapse: collapse;
+        border: 1px solid #FF0000;
+        padding: 5px;
+    }
+
+    table td {
+        border: 1px solid #FF0000;
+    }
+
+    table th {
+        border: 1px solid #FF0000;
+    }
+
+    h1 {
+        text-decoration: underline;
+
+    }
+
+    body {
+        text-align: center;
+    }
+</style>
+<script>
+
+    //get the specified table (from PHP)
+
+    function getTable(selectedTable) {
+
+
+        var url;
+
+        //show loading div
+        document.getElementById('loadingDiv').style.display = 'block';
+
+        //change url based on which Table we want to get
+        if (selectedTable == 'User') {
+            // alert('user');
+            url = "getTable.php?type=User";
+        } else if (selectedTable == 'Game') {
+            // alert('games');
+            url = "getTable.php?type=Game";
+        } else if (selectedTable == 'Dev') {
+            //  alert('udevs');
+            url = "getTable.php?type=Dev";
+        } else if (selectedTable == 'UserTH') {
+            //  alert('transactgion');
+            // var userId = document.getElementById('txtUserId').value;
+            url = "getTable.php?type=th";
+        }
+
+
+        //send the http request
+        var xmlHttp = null;
+
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
+
+        //replace tableData div innerHTML with response from PHP page. Hide loading div, show table.
+        document.getElementById('tableData').innerHTML = xmlHttp.responseText;
+        document.getElementById('loadingDiv').style.display = 'none';
+        document.getElementById('tableViewer').style.display = 'block';
+
+
+    }
+
+    //confirm that the user wants to delete the selected row
+    function confirmDel(selectedTable, id) {
+
+
+        if (confirm("Are you sure you want to delete this row from the table?") == true) {
+            deleteRow(selectedTable, id)
+        } else {
+
+        }
+    }
+
+    //if confirm passes,delete the row then reload table
+    function deleteRow(selectedTable, id) {
+        var url;
+        var url2;
+
+        document.getElementById('loadingDiv').style.display = 'block';
+        if (selectedTable == 'User') {
+
+            url = "deleteRow.php?type=User&id=" + id;
+            url2 = "getTable.php?type=User";
+        } else if (selectedTable == 'Game') {
+            // alert('games');
+            url = "deleteRow.php?type=Game&id=" + id;
+            url2 = "getTable.php?type=Game";
+        } else if (selectedTable == 'Dev') {
+            //  alert('udevs');
+            url = "deleteRow.php?type=Dev&id=" + id;
+            url2 = "getTable.php?type=Game";
+        } else if (selectedTable == 'UserTH') {
+            //  alert('transactgion');
+            var userId = document.getElementById('txtUserId').value;
+            url = "deleteRow.php?type=th&id=" + id;
+            url2 = "getTable.php?type=th";
+        }
+
+
+
+        //send the delete request
+
+        var xmlHttp = null;
+
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
+
+
+
+
+        xmlHttp = null;
+        //reload table
+
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url2, false);
+        xmlHttp.send(null);
+        document.getElementById('tableData').innerHTML = xmlHttp.responseText;
+
+
+        document.getElementById('loadingDiv').style.display = 'none';
+
+    }
+
+
+    function createUser(){
+
+
+        var dname = document.getElementById('dname').value;
+        var addr  = document.getElementById('address').value;
+        var email  = document.getElementById('email').value;
+        var dob  = document.getElementById('dob').value;
+        var name  = document.getElementById('name').value;
+       // ?dName=fjdk&addr=232f&em=dfjdk@djfkd.com&dob=2012/2/12&name=kole
+    var url = "insertUser.php?dName=" + dname + "&addr=" + addr + "&em=" + email + "&dob=" + dob + "&name=" + name;
+
+
+
+
+        document.getElementById('loadingDiv').style.display = 'block';
+
+        var xmlHttp = null;
+
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
+
+        document.getElementById('loadingDiv').style.display = 'none';
+        if( xmlHttp.responseText.indexOf("fully") > -1)
+        alert('Success!');
+        else alert('Error inserting into DB!');
+
+    }
+
+
+</script>
+
+
+<body style="background-color:#808080;">
+
+
+
+
+<div id="Form" style="vertical-align: middle;width: 1000px; margin: 0 auto; padding: 5px; background-color: white; -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5); -webkit-border-radius: 12px; -moz-border-radius: 7px; border-radius: 7px; background: -webkit-gradient(linear, left top, left bottom,
+            color-stop(0%, white), color-stop(35%, #D7E9F5), color-stop(100%, #D7E9F5)); background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); z-index: 20;">
+
+
+
+    <!-- VIEW TABLE SECTION -->
+
+
+    <h1 align="center">View </h1>
+    <table align="center" cellpadding="10">
+
+        <tr>
+            <td>Users</td>
+            <td>
+                <button onclick="document.getElementById('userOptions').style.display = 'block'">Show With Options/Parameters</button>
+            </td>
+            <td>
+                <button onclick="getTable('User')">Show All</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Games</td>
+            <td>
+                <button onclick="getTable('User')">Show With Options/Parameters</button>
+            </td>
+            <td>
+                <button onclick="getTable('Game')">Show All</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Transaction History</td>
+            <td>
+                <button onclick="getTable('User')">Show With Options/Parameters</button>
+            </td>
+            <td>
+                <button onclick="getTable('UserTH')">Show All</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Developers</td>
+            <td>
+                <button onclick="getTable('User')">Show With Options/Parameters</button>
+            </td>
+            <td>
+                <button onclick="getTable('Dev')">Show All</button>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+
+    <!-- Create/Insert INTO Table Section -->
+
+
+    <h1 align="center">Create/Insert</h1>
+
+
+    <h3>User</h3>
+    <table align="center" cellpadding="5">
+
+        <tr>
+            <th>Display Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input type="text" id="dname"></td>
+            <td><input type="text" id="address"></td>
+            <td><input type="text" id="email"></td>
+            <td><input type="text" id="dob"></td>
+            <td><input type="text" id="name"></td>
+
+
+            <td>
+                <button onclick="createUser();">Create User</button>
+            </td>
+        </tr>
+    </table>
+
+    <br/><br/>
+
+    <h3>Game</h3>
+
+    <table align="center" cellpadding="5">
+
+
+        <tr>
+            <td>
+                <button>Create Game</button>
+            </td>
+        </tr>
+    </table>
+
+
+    <h3>Developer</h3>
+
+    <table align="center" cellpadding="5">
+
+
+        <tr>
+            <td>
+                <button>Create Developer</button>
+            </td>
+        </tr>
+    </table>
+
+
+    <h3>Transaction</h3>
+
+    <table align="center" cellpadding="5">
+
+
+        <tr>
+            <td>
+                <button>Create Transaction</button>
+            </td>
+        </tr>
+    </table>
+
+
+    <!-- Loading Div, starts hidden -->
+    <div id="loadingDiv"
+         style="display:none;position:absolute;width:8%;left:46%;top:20%;background-color:white;border-style: solid; border-width: medium; text-align: center;vertical-align: middle;">
+        LOADING..
+    </div>
+
+
+    <!-- Div To Display The Table Returned From PHP, will scroll instead of increasing height if a large amount of rows are returned -->
+    <div id="tableViewer"
+         style="display:none;overflow:scroll;min-width:500px;border-style: solid; border-width: medium;position: absolute; background-color: white;border-color:black;top:20px;left:25%; height: 500px; ">
+        <span style='color:red;' id='close'
+              onclick='document.getElementById("tableViewer").style.display = "none"; return false;'>X</span>
+
+        <div id="tableData" style="">
+            <table align="center" cellpadding="5">
+
+
+
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+    <div id="userOptions" style="min-width:600px;border-style: solid; border-width: medium;position: absolute; background-color: white;border-color:black;top:200px;left:35%; height: 300px; ">
+        <span style='color:red;' id='close2'
+              onclick='document.getElementById("userOptions").style.display = "none"; return false;'>X</span>
+        <h2> User Search Options</h2>
+
+
+        <table cellpadding="5" align="center">
+
+            <tr><th>id</th><th>displayName</th><th>Address</th><th>Email</th><th>DOB</th><th>Name</th></tr>
+
+
+            <tr> <td><input size="15" type="text" id="name2"> - <input size="15" type="text" id="name3"></td></tr>
+
+
+        </table>
+
+
+        <br><br>
+
+        <table align="center">
+
+            <tr><td><button>Search</button></td></tr>
+
+        </table>
+
+
+    </div>
+
+
+
+    </div>
+
+</body>
+
+
+</html>
