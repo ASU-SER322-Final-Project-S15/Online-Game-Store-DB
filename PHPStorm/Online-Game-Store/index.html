@@ -184,7 +184,7 @@
         <tr>
             <td>Users</td>
             <td>
-                <button onclick="getTable('User')">Show With Options/Parameters</button>
+                <button onclick="document.getElementById('userOptions').style.display = 'block'">Show With Options/Parameters</button>
             </td>
             <td>
                 <button onclick="getTable('User')">Show All</button>
@@ -319,6 +319,40 @@
 
 
     </div>
+
+
+    <div id="userOptions" style="min-width:600px;border-style: solid; border-width: medium;position: absolute; background-color: white;border-color:black;top:200px;left:35%; height: 300px; ">
+        <span style='color:red;' id='close2'
+              onclick='document.getElementById("userOptions").style.display = "none"; return false;'>X</span>
+        <h2> User Search Options</h2>
+
+
+        <table cellpadding="5" align="center">
+
+            <tr><th>id</th><th>displayName</th><th>Address</th><th>Email</th><th>DOB</th><th>Name</th></tr>
+
+
+            <tr> <td><input size="15" type="text" id="name2"> - <input size="15" type="text" id="name3"></td></tr>
+
+
+        </table>
+
+
+        <br><br>
+
+        <table align="center">
+
+            <tr><td><button>Search</button></td></tr>
+
+        </table>
+
+
+    </div>
+
+
+
+    </div>
+
 </body>
 
 
