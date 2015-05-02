@@ -141,7 +141,7 @@
         var dob  = document.getElementById('dob').value;
         var name  = document.getElementById('name').value;
        // ?dName=fjdk&addr=232f&em=dfjdk@djfkd.com&dob=2012/2/12&name=kole
-    var url = "insertUser.php?dName=" + dname + "&addr=" + addr + "&em=" + email + "&dob=" + dob + "&name=" + name;
+        var url = "insertUser.php?dName=" + dname + "&addr=" + addr + "&em=" + email + "&dob=" + dob + "&name=" + name;
 
 
 
@@ -161,7 +161,25 @@
 
     }
 
+    function createGame()
+    {
+        var Title = document.getElementById('Title').value;
+        var Metascore  = document.getElementById('Metascore').value;
+        var ESRB  = document.getElementById('ESRB').value;
+        
+        var url = "insertGame.php?Title=" + Title + "&Metascore=" + Metascore + "&ESRB=" + ESRB;
+        
+        var xmlHttp = null;
 
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
+
+        document.getElementById('loadingDiv').style.display = 'none';
+        if( xmlHttp.responseText.indexOf("fully") > -1)
+        alert('Success!');
+        else alert('Error inserting into DB!');
+    }
 </script>
 
 
@@ -260,10 +278,44 @@
 
     <table align="center" cellpadding="5">
 
-
         <tr>
+            <th>Title</th>
+            <th>Metascore</th>
+            <th>ESRB</th>
+            <th>Developer</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input type="text" id="Title"></td>
+            <td><input type="text" id="Metascore"></td>
+            <td><input type="text" id="ESRB"></td>
+            <td><select name = "Develoepers">
+                    <option value="0" selected>Choose a Developer</option>
+                    <?php
+                        //querry the information from the devloper table
+                        $servername = "85.10.205.173:3306";
+                        $username = "sergaming";
+                        $password = ""; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
+                        $database = "sergamedb";
+
+                        $Developer = $_GET["Developer"];
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $database);
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+                        $sql = mysql_query("SELECT name FROM Developer");
+                        while ($row = mysql_fetch_array($sql)){
+                        echo "<option value=\"name1\">" . $row['name'] . "</option>";
+                        }
+                    ?>
+                </select>
+            </td>
+
             <td>
-                <button>Create Game</button>
+                <button onclick="createGame();">Create Game</button>
             </td>
         </tr>
     </table>
