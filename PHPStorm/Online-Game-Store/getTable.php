@@ -17,7 +17,7 @@ $selectedTable = $_GET["type"]; //type of table i.e. Game or User ..
 //$servername = "http://www.db4free.net:3306";
 $servername = "85.10.205.173:3306";
 $username = "sergaming";
-$password = ""; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
+$password = "sergaming123"; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
 $database = "sergamedb";
 
 
@@ -96,13 +96,9 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
         $htmlTable = $htmlTable . "<td>" . $row["Name"] . "</td>";
         $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"User\"," . $row["id"] . ")'>X</button></td>";
     } else if ($selectedTable == "Game") {
-        $htmlTable = $htmlTable . "<td>" . $row["id"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Title"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["UPC"] . "</td>";
-        $htmlTable = $htmlTable . "<td>" . $row["Developer"] . "</td>";
-        $htmlTable = $htmlTable . "<td>" . $row["Publisher"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Metascore"] . "</td>";
-        $htmlTable = $htmlTable . "<td>" . $row["PublisherId"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["ESRB"] . "</td>";
         $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"Game\"," . $row["id"] . ")'>X</button></td>";
     } else if ($selectedTable == "Dev") {
@@ -122,7 +118,7 @@ function getHeaders($htmlTable, $selectedTable)
     if ($selectedTable == "User") {
         $htmlTable = $htmlTable . "<th>userId</th><th>DisplayName</th><th>Address</th><th>Email</th><th>DOB</th><th>Name</th><th>Delete</th>";
     } else if ($selectedTable == "Game") {
-        $htmlTable = $htmlTable . "<th>id</th><th>Title</th><th>UPC</th><th>Developer</th><th>Publisher</th><th>Metascore</th><th>Publisher Id</th><th>ESRB</th><th>Delete</th>";
+        $htmlTable = $htmlTable . "<th>id</th><th>Title</th><th>UPC</th><th>Metascore</th><th>ESRB</th><th>Delete</th>";
 
     } else if ($selectedTable == "Dev") {
         $sql = "select * from Developer";
