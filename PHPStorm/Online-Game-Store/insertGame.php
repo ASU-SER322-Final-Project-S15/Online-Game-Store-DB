@@ -9,8 +9,7 @@
 
 /* GET URL PARAMETERS */
 $Title = $_GET["Title"];
-$Developer = $_GET["Developer"];
-$Publisher = $_GET["Publisher"];
+$DeveloperID = $_GET["DeveloperID"];
 $Metascore = $_GET["Metascore"];
 $ESRB = $_GET["ESRB"];
 
@@ -27,8 +26,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO Game (Title, Developer, Publisher, Metascore, ESRB)
-VALUES ('" . $Title . "','" . $Developer . "','" . $Publisher . "','" . $Metascore . "','" . $ESRB . "')";
+$sql = "INSERT INTO Game (Title, DeveloperID, Metascore, ESRB)
+VALUES ('" . $Title . "','" . $DeveloperID . "','" . $Metascore . "','" . $ESRB . "')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

@@ -164,12 +164,11 @@
     function createGame()
     {
         var Title = document.getElementById('Title').value;
-        var Developer  = document.getElementById('Developer').value;
-        var Publisher  = document.getElementById('Publisher').value;
+        var DeveloperID  = document.getElementById('DeveloperID').value;
         var Metascore  = document.getElementById('Metascore').value;
         var ESRB  = document.getElementById('ESRB').value;
         
-        var url = "insertUser.php?Title=" + Title + "&Developer=" + Developer + "&Publisher=" + Publisher + "&Metascore=" + Metascore + "&ESRB=" + ESRB;
+        var url = "insertUser.php?Title=" + Title + "&DeveloperID=" + DeveloperID + "&Metascore=" + Metascore + "&ESRB=" + ESRB;
         
         var xmlHttp = null;
 
@@ -282,16 +281,14 @@
 
         <tr>
             <th>Title</th>
-            <th>Developer</th>
-            <th>Publisher</th>
+            <th>DeveloperID</th>
             <th>Metascore</th>
             <th>ESRB</th>
             <th></th>
         </tr>
         <tr>
             <td><input type="text" id="Title"></td>
-            <td><input type="text" id="Developer"></td>
-            <td><input type="text" id="Publisher"></td>
+            <td><input type="text" id="DeveloperID"></td>
             <td><input type="text" id="Metascore"></td>
             <td><input type="text" id="ESRB"></td>
 
