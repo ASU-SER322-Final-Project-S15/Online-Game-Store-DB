@@ -3,17 +3,67 @@
 <style type="text/css" media="screen">
 
     table {
+        width: 100%;
+        max-width: 600px;
+
         border-collapse: collapse;
-        border: 1px solid #FF0000;
-        padding: 5px;
-    }
+        border: 1px solid #38678f;
 
-    table td {
-        border: 1px solid #FF0000;
+        background: white;
     }
-
-    table th {
-        border: 1px solid #FF0000;
+    th {
+        background: steelblue;
+        height: 54px;
+        width: 25%;
+        font-weight: lighter;
+        text-shadow: 0 1px 0 #38678f;
+        color: white;
+        border: 1px solid #38678f;
+        box-shadow: inset 0px 1px 2px #568ebd;
+        transition: all 0.2s;
+    }
+    tr {
+        border-bottom: 1px solid #cccccc;
+    }
+    tr:last-child {
+        border-bottom: 0px;
+    }
+    td {
+        border-right: 1px solid #cccccc;
+        padding: 10px;
+        transition: all 0.2s;
+    }
+    td:last-child {
+        border-right: 0px;
+    }
+    td.selected {
+        background: #d7e4ef;
+        z-index: ;
+    }
+    td input {
+        font-size: 14px;
+        background: none;
+        outline: none;
+        border: 0;
+        display: table-cell;
+        height: 100%;
+        width: 100%;
+    }
+    td input:focus {
+        box-shadow: 0 1px 0 steelblue;
+        color: steelblue;
+    }
+    ::-moz-selection {
+        background: steelblue;
+        color: white;
+    }
+    ::selection {
+        background: steelblue;
+        color: white;
+    }
+    .heavyTable {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        animation: float 5s infinite;
     }
 
     h1 {
@@ -302,7 +352,7 @@
 
 
     <h1 align="center">View </h1>
-    <table align="center" cellpadding="10">
+    <table class="heavyTable" align="center" cellpadding="10">
 
         <tr>
             <td>Users</td>
@@ -362,7 +412,7 @@
 
 
     <h3>User</h3>
-    <table align="center" cellpadding="5">
+    <table class="heavyTable" align="center" cellpadding="5">
 
         <tr>
             <th>Display Name</th>
@@ -390,7 +440,7 @@
 
     <h3>Game</h3>
 
-    <table align="center" cellpadding="5">
+    <table class="heavyTable" align="center" cellpadding="5">
 
         <tr>
             <th>Title</th>
@@ -421,7 +471,7 @@
 
     <h3>Inventory</h3>
 
-    <table align="center" cellpadding="5">
+    <table class="heavyTable" align="center" cellpadding="5">
         <tr>
             <th>Game</th>
             <th>Price</th>
@@ -452,7 +502,7 @@
     <br/>
     <h3>Developer</h3>
 
-    <table align="center" cellpadding="5">
+    <table class="heavyTable" align="center" cellpadding="5">
         <tr>
             <th>Name</th>
             <th></th>
@@ -468,7 +518,7 @@
     <br/>
     <h3>Transaction</h3>
 
-    <table align="center" cellpadding="5">
+    <table class="heavyTable" align="center" cellpadding="5">
 
 
         <tr>
@@ -488,8 +538,8 @@
 
     <!-- Div To Display The Table Returned From PHP, will scroll instead of increasing height if a large amount of rows are returned -->
     <div id="tableViewer"
-         style="display:none;overflow:scroll;min-width:500px;border-style: solid; border-width: medium;position: absolute; background-color: white;border-color:black;top:20px;left:25%; height: 500px; ">
-        <span style='color:red;' id='close'
+         style="display:none;overflow:scroll;min-width:500px; position: absolute; background-color: white;border-color:black;top:20px;left:35%;top:25%; height: 500px; ">
+        <span style='color:red;position:absolute;top:0;left:0;' id='close'
               onclick='document.getElementById("tableViewer").style.display = "none"; return false;'>X</span>
 
         <div id="tableData" style="">
@@ -505,13 +555,13 @@
     </div>
 
 
-    <div id="userOptions" style="min-width:600px;border-style: solid; border-width: medium;position: absolute; background-color: white;border-color:black;top:200px;left:35%; height: 300px; ">
+    <div id="userOptions" style="display:none;min-width:600px;border-style: solid; border-width: medium;position: absolute; background-color: white;border-color:black;top:200px;left:35%; height: 300px; ">
         <span style='color:red;' id='close2'
               onclick='document.getElementById("userOptions").style.display = "none"; return false;'>X</span>
         <h2> User Search Options</h2>
 
 
-        <table cellpadding="5" align="center">
+        <table class="heavyTable" cellpadding="5" align="center">
 
             <tr><th>id</th><th>displayName</th><th>Address</th><th>Email</th><th>DOB</th><th>Name</th></tr>
 
@@ -524,7 +574,7 @@
 
         <br><br>
 
-        <table align="center">
+        <table class="heavyTable" align="center">
 
             <tr><td><button>Search</button></td></tr>
 
