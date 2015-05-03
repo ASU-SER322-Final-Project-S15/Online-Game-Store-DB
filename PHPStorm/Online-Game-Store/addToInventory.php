@@ -1,16 +1,16 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Kole 
+ * User: Derek 
  * Date: 4/21/2015
  * Time: 4:50 PM
  */
 
 
 /* GET URL PARAMETERS */
-$Title = $_GET["Title"];
-$Metascore = $_GET["Metascore"];
-$ESRB = $_GET["ESRB"];
+$Game = $_GET["game"];
+$Price = $_GET["price"];
+$Used = $_GET["used"];
 
 
 $servername = "85.10.205.173:3306";
@@ -25,8 +25,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO Game (Title, Metascore, ESRB)
-VALUES ('" . $Title . "','" . $Metascore . "','" . $ESRB . "')";
+$sql = "insert into Inventory (UPC, Price, Used) values ((select UPC from Game where Title = \"". $Game ."\"), " . $Price . ", " . $Used . ")";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

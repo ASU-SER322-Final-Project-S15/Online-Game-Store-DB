@@ -1,16 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Kole 
+ * User: Derek 
  * Date: 4/21/2015
  * Time: 4:50 PM
  */
 
 
 /* GET URL PARAMETERS */
-$Title = $_GET["Title"];
-$Metascore = $_GET["Metascore"];
-$ESRB = $_GET["ESRB"];
+$Name = $_GET["name"];
 
 
 $servername = "85.10.205.173:3306";
@@ -25,8 +23,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO Game (Title, Metascore, ESRB)
-VALUES ('" . $Title . "','" . $Metascore . "','" . $ESRB . "')";
+$sql = "INSERT INTO Developer (name)
+VALUES ('" . $Name . "')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
