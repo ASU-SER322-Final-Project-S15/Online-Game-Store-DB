@@ -1,19 +1,16 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Kole
+ * User: Derek 
  * Date: 4/21/2015
  * Time: 4:50 PM
  */
 
 
 /* GET URL PARAMETERS */
-$displayName = $_GET["dName"];
-$addr = $_GET["addr"];
-$em = $_GET["em"];
-$dob = $_GET["dob"];
-$name = $_GET["name"];
-
+$Game = $_GET["game"];
+$Price = $_GET["price"];
+$Used = $_GET["used"];
 
 
 $servername = "85.10.205.173:3306";
@@ -28,8 +25,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO User (DisplayName, Address, Email, DOB, Name)
-VALUES ('" . $displayName . "','" . $addr . "','" . $em . "','" . $dob . "','" . $name . "')";
+$sql = "insert into Inventory (UPC, Price, Used) values ((select UPC from Game where Title = \"". $Game ."\"), " . $Price . ", " . $Used . ")";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
