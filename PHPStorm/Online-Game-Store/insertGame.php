@@ -15,7 +15,7 @@ $ESRB = $_GET["ESRB"];
 
 $servername = "85.10.205.173:3306";
 $username = "sergaming";
-$password = ""; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
+$password = "sergaming123"; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
 $database = "sergamedb";
 
 // Create connection
