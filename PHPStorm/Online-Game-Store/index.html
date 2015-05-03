@@ -292,19 +292,24 @@
             <td><select name = "Develoepers">
                     <option value="0" selected>Choose a Developer</option>
                     <?php
-                    //querry the information from the devloper table
-                    $servername = "85.10.205.173:3306";
-                    $username = "sergaming";
-                    $password = ""; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
-                    $database = "sergamedb";
-                    
-                    $Developer = $_GET["Developer"];
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $database);
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
+                        //querry the information from the devloper table
+                        $servername = "85.10.205.173:3306";
+                        $username = "sergaming";
+                        $password = ""; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
+                        $database = "sergamedb";
+
+                        $Developer = $_GET["Developer"];
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $database);
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+                        $sql = mysql_query("SELECT name FROM Developer");
+                        while ($row = mysql_fetch_array($sql)){
+                        echo "<option value=\"name1\">" . $row['name'] . "</option>";
+                        }
                     ?>
                 </select>
             </td>
