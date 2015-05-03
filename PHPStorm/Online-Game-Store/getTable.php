@@ -43,7 +43,7 @@ if ($selectedTable == "User")
 else if ($selectedTable == "Game")
     $sql = "select g.Title,g.UPC,g.Metascore,g.ESRB,d.name from Game g, Developer d, Develops s where s.UPC = g.UPC and s.DevID = d.id";
 else if ($selectedTable == "Dev")
-    $sql = "";
+    $sql = "select * from Developer";
 else if ($selectedTable == "Inventory")
     $sql = "select g.Title, i.SKU, i.Price, i.Used, i.Sold from Inventory i, Game g where i.UPC = g.UPC";
 else if ($selectedTable == "UserTH")
@@ -105,7 +105,7 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
         $htmlTable = $htmlTable . "<td>" . $row["name"] . "</td>";
         $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"Game\"," . $row["Title"] . ")'>X</button></td>";
     } else if ($selectedTable == "Dev") {
-        $sql = "select * from Developer";
+        $htmlTable = $htmlTable . "<td>" . $row["name"] . "</td>";
     } else if ($selectedTable == "Inventory"){
         $htmlTable = $htmlTable . "<td>" . $row["Title"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["SKU"] . "</td>";
@@ -137,7 +137,7 @@ function getHeaders($htmlTable, $selectedTable)
     } else if ($selectedTable == "Game") {
         $htmlTable = $htmlTable . "<th>Title</th><th>UPC</th><th>Metascore</th><th>ESRB</th><th>Developer</th><th>Delete</th>";
     } else if ($selectedTable == "Dev") {
-        $sql = "select * from Developer";
+        $htmlTable = $htmlTable . "<th>Name</th>";
     } else if ($selectedTable == "Inventory") {
         $htmlTable = $htmlTable . "<th>Title</th><th>SKU</th><th>Price</th><th>Used?</th><th>Sold?</th>";
     }else if ($selectedTable == "UserTH") {
