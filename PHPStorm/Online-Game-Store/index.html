@@ -185,9 +185,10 @@
         xmlHttp.send(null);
 
         document.getElementById('loadingDiv').style.display = 'none';
-        if( xmlHttp.responseText.indexOf("fully") > -1)
-        alert('Success!');
-        else alert('Error inserting into DB!');
+        if( xmlHttp.responseText.indexOf("fully") > -1){
+            alert('Success!');
+            getGameList();
+        }else alert('Error inserting into DB!');
     }
     
     
