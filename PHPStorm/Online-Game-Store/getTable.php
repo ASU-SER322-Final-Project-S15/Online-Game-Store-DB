@@ -44,6 +44,8 @@ else if ($selectedTable == "Game")
     $sql = "select g.Title,g.UPC,g.Metascore,g.ESRB,d.name from Game g, Developer d, Develops s where s.UPC = g.UPC and s.DevID = d.id";
 else if ($selectedTable == "Dev")
     $sql = "";
+else if ($selectedTable == "Inventory")
+    $sql = "select g.Title, i.SKU, i.Price, i.Used, i.Sold from Inventory i, Game g where i.UPC = g.UPC";
 else if ($selectedTable == "UserTH")
     $sql = "select * from Transactions";
 
@@ -101,10 +103,24 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
         $htmlTable = $htmlTable . "<td>" . $row["Metascore"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["ESRB"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["name"] . "</td>";
-        $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"Game\"," . $row["UPC"] . ")'>X</button></td>";
+        $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"Game\"," . $row["Title"] . ")'>X</button></td>";
     } else if ($selectedTable == "Dev") {
         $sql = "select * from Developer";
-    } else if ($selectedTable == "UserTH") {
+    } else if ($selectedTable == "Inventory"){
+        $htmlTable = $htmlTable . "<td>" . $row["Title"] . "</td>";
+        $htmlTable = $htmlTable . "<td>" . $row["SKU"] . "</td>";
+        $htmlTable = $htmlTable . "<td>" . $row["Price"] . "</td>";
+        $U = "No";
+        if($row["Used"] == "1"){
+            $U = "Yes";
+        }
+        $S = "No";
+        if($row["Sold"] == "1"){
+            $S = "Yes";
+        }
+        $htmlTable = $htmlTable . "<td>" . $U . "</td>";
+        $htmlTable = $htmlTable . "<td>" . $S . "</td>";
+    }else if ($selectedTable == "UserTH") {
         $sql = "select * from User where userId=" . $userId;
     }
 
@@ -120,10 +136,11 @@ function getHeaders($htmlTable, $selectedTable)
         $htmlTable = $htmlTable . "<th>userId</th><th>DisplayName</th><th>Address</th><th>Email</th><th>DOB</th><th>Name</th><th>Delete</th>";
     } else if ($selectedTable == "Game") {
         $htmlTable = $htmlTable . "<th>Title</th><th>UPC</th><th>Metascore</th><th>ESRB</th><th>Developer</th><th>Delete</th>";
-
     } else if ($selectedTable == "Dev") {
         $sql = "select * from Developer";
-    } else if ($selectedTable == "UserTH") {
+    } else if ($selectedTable == "Inventory") {
+        $htmlTable = $htmlTable . "<th>Title</th><th>SKU</th><th>Price</th><th>Used?</th><th>Sold?</th>";
+    }else if ($selectedTable == "UserTH") {
         $sql = "select * from User where userId=" . $userId;
     }
 
