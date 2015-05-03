@@ -47,6 +47,9 @@
         } else if (selectedTable == 'Dev') {
             //  alert('udevs');
             url = "getTable.php?type=Dev";
+        } else if (selectedTable == 'Inventory') {
+            //  alert('udevs');
+            url = "getTable.php?type=Inventory";
         } else if (selectedTable == 'UserTH') {
             //  alert('transactgion');
             // var userId = document.getElementById('txtUserId').value;
@@ -169,9 +172,11 @@
     {
         var Title = document.getElementById('Title').value;
         var Metascore  = document.getElementById('Metascore').value;
-        var ESRB  = document.getElementById('ESRB').value;
+        var ESRB = document.getElementById('ESRB').value;
+        var devList = document.getElementById('DeveloperNames');
+        var dev = devList.options[devList.selectedIndex].value;
         //grab id from dev table where name = Developers
-        var url = "insertGame.php?Title=" + Title + "&Metascore=" + Metascore + "&ESRB=" + ESRB;
+        var url = "insertGame.php?Title=" + Title + "&Metascore=" + Metascore + "&ESRB=" + ESRB + "&DevName=" +dev;
         
         var xmlHttp = null;
 

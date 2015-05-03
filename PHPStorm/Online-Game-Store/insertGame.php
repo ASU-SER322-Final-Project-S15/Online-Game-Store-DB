@@ -11,6 +11,7 @@
 $Title = $_GET["Title"];
 $Metascore = $_GET["Metascore"];
 $ESRB = $_GET["ESRB"];
+$DevName = $_GET["DevName"];
 
 
 $servername = "85.10.205.173:3306";
@@ -28,6 +29,13 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO Game (Title, Metascore, ESRB)
 VALUES ('" . $Title . "','" . $Metascore . "','" . $ESRB . "')";
 
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "INSERT INTO Develops (UPC,DevID) values ((select UPC from Game where Title = \"". $Title ."\"), (select id from Developer where name = \"". $Game ."\"))";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
