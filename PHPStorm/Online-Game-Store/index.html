@@ -127,7 +127,8 @@
 
     //get the specified table (from PHP)
 
-    function getTable(selectedTable) {
+    function getTable(selectedTable) 
+	{
 
 
         var url;
@@ -151,7 +152,7 @@
         } else if (selectedTable == 'UserTH') {
             //  alert('transactgion');
             // var userId = document.getElementById('txtUserId').value;
-            url = "getTable.php?type=th";
+            url = "getTable.php?type=UserTH";
         }
 
 
@@ -187,23 +188,30 @@
         var url2;
 
         document.getElementById('loadingDiv').style.display = 'block';
-        if (selectedTable == 'User') {
+        if (selectedTable == 'User') 
+		{
 
             url = "deleteRow.php?type=User&id=" + id;
             url2 = "getTable.php?type=User";
-        } else if (selectedTable == 'Game') {
+        } 
+		else if (selectedTable == 'Game') 
+		{
             // alert('games');
             url = "deleteRow.php?type=Game&id=" + id;
             url2 = "getTable.php?type=Game";
-        } else if (selectedTable == 'Dev') {
+        } 
+		else if (selectedTable == 'Dev') 
+		{
             //  alert('udevs');
             url = "deleteRow.php?type=Dev&id=" + id;
             url2 = "getTable.php?type=Game";
-        } else if (selectedTable == 'UserTH') {
+        } 
+		else if (selectedTable == 'UserTH') 
+		{
             //  alert('transactgion');
             var userId = document.getElementById('txtUserId').value;
-            url = "deleteRow.php?type=th&id=" + id;
-            url2 = "getTable.php?type=th";
+            url = "deleteRow.php?type=UserTH&id=" + id;
+            url2 = "getTable.php?type=UserTH";
         }
 
 
