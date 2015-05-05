@@ -27,16 +27,10 @@ if ($conn->connect_error) {
 }
 
 $sql = "INSERT INTO Game (Title, Metascore, ESRB)
-VALUES ('" . $Title . "','" . $Metascore . "','" . $ESRB . "')";
+VALUES ('" . $Title . "','" . $Metascore . "','" . $ESRB . "');";
+$sql.= "INSERT INTO Develops (UPC,DevID) values ((select UPC from Game where Title = \"". $Title ."\"), (select id from Developer where name = \"". $DevName ."\"));";
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$sql = "INSERT INTO Develops (UPC,DevID) values ((select UPC from Game where Title = \"". $Title ."\"), (select id from Developer where name = \"". $Game ."\"))";
-if ($conn->query($sql) === TRUE) {
+if ($conn->multi_query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
