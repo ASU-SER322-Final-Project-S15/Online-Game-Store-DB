@@ -47,7 +47,7 @@ else if ($selectedTable == "Dev")
 else if ($selectedTable == "Inventory")
     $sql = "select g.Title, i.SKU, i.Price, i.Used, i.Sold from Inventory i, Game g where i.UPC = g.UPC";
 else if ($selectedTable == "UserTH")
-    $sql = "select * from Transactions";
+    $sql = "select * from Transaction";
 
 
 //query using the connection, store result
@@ -87,9 +87,8 @@ $conn->close();
 //Depending on table, get HTML row (different per table)
 function getRow($htmlTable, $row, $selectedTable, $userId)
 {
-
-
-    if ($selectedTable == "User") {
+    if ($selectedTable == "User") 
+	{
         $htmlTable = $htmlTable . "<td>" . $row["id"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["DisplayName"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Address"] . "</td>";
@@ -97,31 +96,43 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
         $htmlTable = $htmlTable . "<td>" . $row["DOB"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Name"] . "</td>";
         $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"User\"," . $row["id"] . ")'>X</button></td>";
-    } else if ($selectedTable == "Game") {
+    } 
+	else if ($selectedTable == "Game") 
+	{
         $htmlTable = $htmlTable . "<td>" . $row["Title"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["UPC"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Metascore"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["ESRB"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["name"] . "</td>";
         $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"Game\"," . $row["Title"] . ")'>X</button></td>";
-    } else if ($selectedTable == "Dev") {
+    } 
+	else if ($selectedTable == "Dev") 
+	{
         $htmlTable = $htmlTable . "<td>" . $row["name"] . "</td>";
-    } else if ($selectedTable == "Inventory"){
+    } 
+	else if ($selectedTable == "Inventory")
+	{
         $htmlTable = $htmlTable . "<td>" . $row["Title"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["SKU"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Price"] . "</td>";
         $U = "No";
-        if($row["Used"] == "1"){
+        if($row["Used"] == "1")
+		{
             $U = "Yes";
         }
         $S = "No";
-        if($row["Sold"] == "1"){
+        if($row["Sold"] == "1")
+		{
             $S = "Yes";
         }
         $htmlTable = $htmlTable . "<td>" . $U . "</td>";
         $htmlTable = $htmlTable . "<td>" . $S . "</td>";
-    }else if ($selectedTable == "UserTH") {
-        $sql = "select * from User where userId=" . $userId;
+    }
+	else if ($selectedTable == "UserTH") 
+	{
+        $htmlTable = $htmlTable . "<td>" . $row["TransactionID"] . "</td>";
+        $htmlTable = $htmlTable . "<td>" . $row["Date"] . "</td>";
+        $htmlTable = $htmlTable . "<td>" . $row["UsedID"] . "</td>";
     }
 
 
@@ -132,21 +143,45 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
 function getHeaders($htmlTable, $selectedTable)
 {
 
-    if ($selectedTable == "User") {
-        $htmlTable = $htmlTable . "<th>userId</th><th>DisplayName</th><th>Address</th><th>Email</th><th>DOB</th><th>Name</th><th>Delete</th>";
-    } else if ($selectedTable == "Game") {
-        $htmlTable = $htmlTable . "<th>Title</th><th>UPC</th><th>Metascore</th><th>ESRB</th><th>Developer</th><th>Delete</th>";
-    } else if ($selectedTable == "Dev") {
+    if ($selectedTable == "User") 
+	{
+        $htmlTable = $htmlTable . "<th>userId</th>
+									<th>DisplayName</th>
+									<th>Address</th>
+									<th>Email</th>
+									<th>DOB</th>
+									<th>Name</th>
+									<th>Delete</th>";
+    } 
+	else if ($selectedTable == "Game") 
+	{
+        $htmlTable = $htmlTable . "<th>Title</th>
+									<th>UPC</th>
+									<th>Metascore</th>
+									<th>ESRB</th>
+									<th>Developer</th>
+									<th>Delete</th>";
+    } 
+	else if ($selectedTable == "Dev") 
+	{
         $htmlTable = $htmlTable . "<th>Name</th>";
-    } else if ($selectedTable == "Inventory") {
-        $htmlTable = $htmlTable . "<th>Title</th><th>SKU</th><th>Price</th><th>Used?</th><th>Sold?</th>";
-    }else if ($selectedTable == "UserTH") {
-        $sql = "select * from User where userId=" . $userId;
+    } 
+	else if ($selectedTable == "Inventory") 
+	{
+        $htmlTable = $htmlTable . "<th>Title</th>
+									<th>SKU</th>
+									<th>Price</th>
+									<th>Used?</th>
+									<th>Sold?</th>";
+    }
+	else if ($selectedTable == "UserTH") 
+	{
+        $htmlTable = $htmlTable . "<th>TransactionID</th>
+									<th>Date</th>
+									<th>UsedID</th>";
     }
 
-
     return $htmlTable;
-
 }
 
 
