@@ -104,11 +104,12 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
         $htmlTable = $htmlTable . "<td>" . $row["Metascore"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["ESRB"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["name"] . "</td>";
-        $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"Game\"," . $row["Title"] . ")'>X</button></td>";
+        $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"Game\",\"" . $row["Title"] . "\")'>X</button></td>";
     } 
 	else if ($selectedTable == "Dev") 
 	{
         $htmlTable = $htmlTable . "<td>" . $row["name"] . "</td>";
+        $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"Dev\",\"" . $row["name"] . "\")'>X</button></td>";
     } 
 	else if ($selectedTable == "Inventory")
 	{
@@ -126,12 +127,14 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
         }
         $htmlTable = $htmlTable . "<td>" . $U . "</td>";
         $htmlTable = $htmlTable . "<td>" . $S . "</td>";
+        $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"Inventory\",\"" . $row["Title"] . "\")'>X</button></td>";
     }
 	else if ($selectedTable == "UserTH") 
 	{
-        $htmlTable = $htmlTable . "<td>" . $row["TransactionID"] . "</td>";
+        $htmlTable = $htmlTable . "<td>" . $row["id"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Date"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["UsedID"] . "</td>";
+        $htmlTable = $htmlTable . "<td style=' text-align: center;color:red;'><button style='color:red;' onclick='confirmDel(\"UserTH\",\"" . $row["id"] . "\")'>X</button></td>";
     }
 
 
@@ -163,7 +166,7 @@ function getHeaders($htmlTable, $selectedTable)
     } 
 	else if ($selectedTable == "Dev") 
 	{
-        $htmlTable = $htmlTable . "<th>Name</th>";
+        $htmlTable = $htmlTable . "<th>Name</th><th>Delete</th>";
     } 
 	else if ($selectedTable == "Inventory") 
 	{
@@ -171,13 +174,13 @@ function getHeaders($htmlTable, $selectedTable)
 									<th>SKU</th>
 									<th>Price</th>
 									<th>Used?</th>
-									<th>Sold?</th>";
+									<th>Sold?</th><th>Delete</th>";
     }
 	else if ($selectedTable == "UserTH") 
 	{
         $htmlTable = $htmlTable . "<th>TransactionID</th>
 									<th>Date</th>
-									<th>UsedID</th>";
+									<th>UsedID</th><th>Delete</th>";
     }
 
     return $htmlTable;

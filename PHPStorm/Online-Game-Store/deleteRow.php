@@ -31,11 +31,11 @@ if ($selectedTable == 'User') {
 
 } else if ($selectedTable == 'Game') {
 
-    $sql = "DELETE FROM Game WHERE id=" . $id;
+    $sql = "DELETE FROM Game WHERE Title='" . (string)$id . "'";
 
 } else if ($selectedTable == 'Dev') {
 
-    $sql = "DELETE FROM Developer WHERE id=" . $id;
+    $sql = "DELETE FROM Developer WHERE name='" . $id . "'";
 
 } else if ($selectedTable == 'UserTH') {
     $sql = "DELETE FROM Transaction WHERE id=" . $id;
@@ -49,7 +49,7 @@ if ($selectedTable == 'User') {
 if ($conn->query($sql) === TRUE) {
     echo "Record deleted successfully";
 } else {
-    echo "Error deleting record: " . $conn->error . "   " . $sql;
+    echo "Error deleting record: " . $conn->error . "   " . $sql . " | " . $sql;
 }
 
 $conn->close();
