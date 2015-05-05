@@ -12,7 +12,7 @@
 	{
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT G1.Title
+    $sql = "SELECT DISTINCT G1.Title
 			FROM Inventory I1, Game G1
 			WHERE I1.Sold = 0
 			AND G1.UPC = I1.UPC";
