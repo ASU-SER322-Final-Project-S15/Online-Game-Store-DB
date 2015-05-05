@@ -111,7 +111,7 @@ function getRow($htmlTable, $row, $selectedTable, $userId)
         $htmlTable = $htmlTable . "<td>" . $row["SKU"] . "</td>";
         $htmlTable = $htmlTable . "<td>" . $row["Price"] . "</td>";
         $U = "No";
-        if($row["Used"] == "1"){
+        if($row["Used"] == "0"){
             $U = "Yes";
         }
         $S = "No";

@@ -315,11 +315,8 @@
         var game = list.options[list.selectedIndex].value;
         var price = document.getElementById('Price').value;
         var usedCBox = document.getElementById("UsedCBox");
-        var u = usedCBox.options[usedCBox.selectedIndex].value;
-        var used = 0;
-        if (u == "Yes")
-            used = 1;
-        console.log(game + "  " + price + "    " + used);
+        var used = usedCBox.selectedIndex;
+		
         //grab id from dev table where name = Developers
         var url = "addToInventory.php?game=" + game + "&price=" + price + "&used="+used;
 
