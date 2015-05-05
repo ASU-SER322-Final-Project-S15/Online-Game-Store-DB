@@ -314,8 +314,8 @@
         var list = document.getElementById('GameList');
         var game = list.options[list.selectedIndex].value;
         var price = document.getElementById('Price').value;
-        var usedCBox = document.getElementById('Used');
-        var u = usedCBox.options[list.selectedIndex].value;
+        var usedCBox = document.getElementById("UsedCBox");
+        var u = usedCBox.options[usedCBox.selectedIndex].value;
         var used = 0;
         if (u == "Yes")
             used = 1;
@@ -534,7 +534,7 @@
             </td>
             <td><input type="text" id="Price"></td>
             <td>
-                <select id="Used">
+                <select id="UsedCBox">
                     <option value="0" selected>Yes</option>
                     <option value="1" selected>No</option>
                 </select></td>
