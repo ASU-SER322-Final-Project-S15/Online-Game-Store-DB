@@ -434,6 +434,34 @@
             }
         }
 	}
+
+
+
+    function customUserSearch(){
+
+
+
+        var url = "getCustomTable.php?type=User&query=";
+
+        var whereQ = "";
+
+
+      if( document.getElementById('uId1').value.length > 0 && document.getElementById('uId2').value.length > 0 )
+        whereQ += "id>=" + document.getElementById('uId1').value + " and id <= " +   document.getElementById('uId2').value;
+
+
+
+
+
+        var xmlHttp = null;
+
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url + whereQ, true);
+        xmlHttp.send(null);
+
+        alert(url + whereQ);
+
+    }
 </script>
 
 
@@ -691,17 +719,17 @@
             <tr><th>id</th><th>displayName</th><th>Address</th><th>Email</th><th>DOB</th><th>Name</th></tr>
 
 
-            <tr> <td><input size="15" type="text" id="name2"> - <input size="15" type="text" id="name3"></td>
+            <tr> <td><input size="15" type="text" id="uId1"> - <input size="15" type="text" id="uId2"></td>
 
-                <td><input size="15" type="text" id="name2"></td>
+                <td><input size="15" type="text" id="uDN"></td>
 
-                <td><input size="15" type="text" id="name2"></td>
+                <td><input size="15" type="text" id="uAdd"></td>
 
-                <td><input size="15" type="text" id="name2"></td>
+                <td><input size="15" type="text" id="uEm"></td>
 
-                <td><input size="10" type="text" id="name2"> </td>
+                <td><input size="10" type="text" id="uDOB"> </td>
 
-                <td><input size="15" type="text" id="name2"></td>
+                <td><input size="15" type="text" id="uName"></td>
 
 
             </tr>
@@ -714,7 +742,7 @@
 
 
 
-          <button>Search</button>
+          <button onclick="customUserSearch()" >Search</button>
 
 
 
