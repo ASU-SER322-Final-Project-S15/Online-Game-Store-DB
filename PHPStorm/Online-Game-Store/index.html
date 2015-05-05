@@ -449,6 +449,13 @@
       if( document.getElementById('uId1').value.length > 0 && document.getElementById('uId2').value.length > 0 )
         whereQ += "id>=" + document.getElementById('uId1').value + " and id <= " +   document.getElementById('uId2').value;
 
+        else{
+
+          if( document.getElementById('uId1').value.length > 0)
+              whereQ += "id =" + document.getElementById('uId1').value;
+          if( document.getElementById('uId2').value.length > 0)
+              whereQ += "id =" + document.getElementById('uId2').value;
+      }
 
 
         var url2 = url + whereQ;
