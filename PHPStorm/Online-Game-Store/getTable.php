@@ -7,11 +7,8 @@
  * Time: 1:57 PM
  */
 
-
-
 /* GET URL PARAMETERS */
 $selectedTable = $_GET["type"]; //type of table i.e. Game or User ..
-
 
 /* MYSQL Server Connection Info */
 //$servername = "http://www.db4free.net:3306";
@@ -20,24 +17,20 @@ $username = "sergaming";
 $password = "sergaming123"; //CHANGE BEFORE COMMITTING AND POSTING TO GITHUB (ITS PUBLIC)
 $database = "sergamedb";
 
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
-if ($conn->connect_error) {
+if ($conn->connect_error) 
+{
     die("Connection failed: " . $conn->connect_error);
 }
 //echo "Connected successfully";
 
 /* DONE WITH CONNECTING - TIME TO QUERY */
-
-
 $sql;
 
-
 /* CHANGE SELECTION QUERY BASED ON TABLE WANTED */
-
 if ($selectedTable == "User")
     $sql = "select * from User";
 else if ($selectedTable == "Game")
@@ -49,25 +42,24 @@ else if ($selectedTable == "Inventory")
 else if ($selectedTable == "UserTH")
     $sql = "select * from Transaction";
 
-
 //query using the connection, store result
 $result = $conn->query($sql);
 
 //if there's rows returned, go through them
-if ($result->num_rows > 0) {
+if ($result->num_rows > 0) 
+{
     // output data of each row
-
     $htmlTable = "<table align='center' cellpadding='10'>";
 
     //get the HEADERS row of the table
     $htmlTable = getHeaders($htmlTable, $selectedTable);
 
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) 
+	{
         $htmlTable = $htmlTable . "<tr>";
 
         //Get the row (changes depending on which table is wanted to be returned)
         $htmlTable = getRow($htmlTable, $row, $selectedTable, $userId);
-
 
         $htmlTable = $htmlTable . "</tr>";
 
@@ -77,8 +69,9 @@ if ($result->num_rows > 0) {
     $htmlTable = $htmlTable . "</table>";
 
     echo $htmlTable;
-
-} else {
+} 
+else 
+{
     echo "0 results";
 }
 $conn->close();
@@ -185,6 +178,5 @@ function getHeaders($htmlTable, $selectedTable)
 
     return $htmlTable;
 }
-
 
 ?>
