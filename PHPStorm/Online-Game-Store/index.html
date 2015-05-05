@@ -458,6 +458,50 @@
       }
 
 
+       if( document.getElementById('uDN').value.length > 0){
+
+           if(whereQ.length > 0)
+               whereQ += " AND DisplayName = '" + document.getElementById('uDN').value + "'" ;
+           else
+               whereQ += " DisplayName = '" + document.getElementById('uDN').value + "'" ;
+       }
+
+        if( document.getElementById('uAdd').value.length > 0){
+
+            if(whereQ.length > 0)
+                whereQ += " AND Address = '" + document.getElementById('uAdd').value + "'" ;
+            else
+                whereQ += " Address = '" + document.getElementById('uAdd').value + "'" ;
+        }
+
+
+        if( document.getElementById('uEm').value.length > 0){
+
+            if(whereQ.length > 0)
+                whereQ += " AND Email = '" + document.getElementById('uEm').value + "'" ;
+            else
+                whereQ += " Email = '" + document.getElementById('uEm').value + "'" ;
+        }
+
+
+        if( document.getElementById('uDOB').value.length > 0){
+
+            if(whereQ.length > 0)
+                whereQ += " AND DOB = '" + document.getElementById('uDOB').value + "'" ;
+            else
+                whereQ += " DOB = '" + document.getElementById('uDOB').value + "'" ;
+        }
+
+        if( document.getElementById('uName').value.length > 0){
+
+            if(whereQ.length > 0)
+                whereQ += " AND Name = '" + document.getElementById('uName').value + "'" ;
+            else
+                whereQ += " Name = '" + document.getElementById('uName').value + "'" ;
+        }
+
+
+
         var url2 = url + whereQ;
 
         var xmlHttp = null;
